@@ -11,17 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const audioControlsDiv = document.getElementById('audio-controls');
 
     audioFiles.forEach(audioFile => {
-        const link = document.createElement('span'); // Use a span instead of an anchor tag
+        const link = document.createElement('span'); // Use a span styled as a clickable link
         link.textContent = `Play ${audioFile}`;
         link.className = 'audio-link';
 
-        // Open audio in a new window with specified size
+        // Open audio in a new window
         link.onclick = () => {
-            window.open(
+            const newWindow = window.open(
                 audioFile, // URL of the audio file
                 '_blank', // Open in a new browser window
-                'width=400,height=100,scrollbars=no,resizable=no' // Window properties
+                'width=400,height=200,scrollbars=no,resizable=no,toolbar=no,location=no,menubar=no,status=no' // All window features
             );
+
+            if (!newWindow) {
+                alert(
+                    'Failed to open the audio in a new window. Check your browser settings to allow pop-ups for this site.'
+                );
+            }
         };
 
         audioControlsDiv.appendChild(link);
