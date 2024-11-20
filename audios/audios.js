@@ -2,9 +2,8 @@
 
 // List of audio files (add new audio files here)
 const audioFiles = [
-    'audio1.mp3',
-    'audio2.wav',
-    'audio3.ogg'
+    'londonbridge.mp3',
+    'meryhadalittlegyett.mp3'
 ];
 
 // Dynamically generate links for the audio files
